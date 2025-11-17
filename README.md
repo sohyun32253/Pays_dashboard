@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+
+
+.env 환경변수 파일 안에 VITE_API_BASE_URL=https://recruit.paysbypays.com/api/v1 이 작성되어 있습니다.
