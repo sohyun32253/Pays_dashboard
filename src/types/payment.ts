@@ -7,3 +7,10 @@ export interface Payment {
   status: string;
   paymentAt: string;
 }
+
+export interface Merchant{
+  mchtCode: string;
+  mchtName: string;
+  status: string;
+  bizType: string;
+}
