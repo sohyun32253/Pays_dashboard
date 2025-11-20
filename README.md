@@ -11,15 +11,23 @@ React + TypeScript + Vite 환경에서 구현했으며,
 
 ## 🚀 실행 방법
 
-### 1. 패키지 설치
+### 1) .env 파일 생성 
+```
+VITE_API_BASE_URL=https://recruit.paysbypays.com/api/v1
+```
+※ 환경 변수 파일(.env)은 실 사용 시 프로젝트 루트에 생성해야 합니다.
+
+### 2) 패키지 설치
 ```
 npm install
 ```
 
-### 2. 로컬 실행
+### 3) 로컬 실행
 ```
 npm run dev
 ```
+
+
 ### 🔧 개발 환경
 
 | 항목      | 버전 / 옵션      |
@@ -41,12 +49,7 @@ https://recruit.paysbypays.com/api/v1
 #### Swagger 문서
 https://recruit.paysbypays.com/swagger-ui/index.html
 
-프로젝트 내에서는 환경변수를 통해 관리합니다:
 
-VITE_API_BASE_URL=https://recruit.paysbypays.com/api/v1
-
-
-※ 환경 변수 파일(.env)은 실 사용 시 프로젝트 루트에 생성해야 합니다.
 
 ## 📌 구현된 주요 페이지
 ### 1. Dashboard (필수 포함)
@@ -126,7 +129,7 @@ src/
  └── utils/          # 금액/날짜 포맷 함수 등
 ```
 
-## 📝 디자인 의도 (요청된 항목)
+## 📝 디자인 의도 
 - 결제/가맹점 데이터를 한눈에 파악할 수 있는 구조
 
 - 관리자(Admin) 페이지에 적합한 간결하고 직관적인 UI
