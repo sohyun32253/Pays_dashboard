@@ -31,6 +31,20 @@ export default function TransactionsPage() {
   if (loading) return <div>로딩중...</div>;
   if (error) return <div>에러 발생!</div>;
 
+  // 날짜 포맷 함수
+  function formatDate(dateStr: string) {
+    const date = new Date(dateStr);
+
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+
+    const hh = String(date.getHours()).padStart(2, "0");
+    const mm = String(date.getMinutes()).padStart(2, "0");
+
+    return `${y}-${m}-${d} ${hh}:${mm}`;
+  }
+
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const start = page * itemsPerPage;
@@ -55,10 +69,10 @@ export default function TransactionsPage() {
           {currentItems.map((item) => (
             <tr key={item.paymentCode} className="p-4">
               <td>{item.paymentCode}</td>
-              <td>{item.paymentAt}</td>
+              <td className="p-3">{formatDate(item.paymentAt)}</td>
               <td>{item.mchtCode}</td>
               <td>
-                {item.amount} {item.currency}
+                {Number(item.amount).toLocaleString()} {item.currency}
               </td>
               <td>{item.payType}</td>
               <td>

@@ -7,9 +7,9 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
     "px-4 py-2 rounded-full text-white text-sm font-medium inline-block";
 
   const statusStyle = {
-    SUCCESS: "bg-green-500",
+    SUCCESS: "bg-violet-600",
     FAILED: "bg-orange-500",
-    CANCELLED: "bg-gray-300",
+    CANCELLED: "bg-gray-400",
     PENDING: "bg-yellow-500",
     ACTIVE: "bg-blue-500",
     INACTIVE: "bg-gray-300",

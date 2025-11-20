@@ -17,7 +17,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; 
-  background-color: #f9fafb; 
+  background: #f3f3f3;
 }
 
 a {
@@ -64,6 +64,9 @@ th{
 
 tr, td{
   padding: 20px;
-  border-bottom: 1px solid #d3d3d3;
   font-size: 16px;
+}
+
+td{
+  border-top: 1px solid #d3d3d3;
 }

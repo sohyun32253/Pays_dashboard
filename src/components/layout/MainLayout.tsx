@@ -8,7 +8,7 @@ export default function MainLayout() {
   return (
   <div className="flex min-h-screen">
     {/* Sidebar */}
-    <aside className="w-[300px] fixed inset-y-0 left-0 bg-gray-900 text-white p-4 min-h-screen">
+    <aside className="w-[280px] fixed inset-y-0 left-0 bg-gray-900 text-white p-4 min-h-screen">
       <h1 className="text-lg font-bold mb-6 px-3">BrunchPay Admin</h1>
 
       <nav className="mt-6">
@@ -32,7 +32,7 @@ export default function MainLayout() {
     </aside>
 
     {/* Main */}
-    <main className="flex-1 ml-[300px] bg-gray-50 min-h-screen p-8">
+    <main className="flex-1 ml-[300px] min-h-screen px-5 py-8">
       <div className="mx-auto">
         <Outlet />
       </div>

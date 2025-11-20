@@ -1,7 +1,7 @@
 export interface Payment {
   paymentCode: string;
   mchtCode: string;
-  amount: string;
+  amount: number;
   currency: string;
   payType: string;
   status: string;
