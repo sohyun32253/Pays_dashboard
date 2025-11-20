@@ -3,13 +3,16 @@ import dashboardIcon from "../../assets/dashboard_icon.svg"
 import transactionIcon from "../../assets/transaction_icon.svg"
 import merchantsIcon from "../../assets/merchants_icon.svg"
 import invoicesIcon from "../../assets/invoices_icon.svg"
+import { Link } from "react-router-dom";
 
 export default function MainLayout() {
   return (
   <div className="flex min-h-screen">
     {/* Sidebar */}
     <aside className="w-[280px] fixed inset-y-0 left-0 bg-gray-900 text-white p-4 min-h-screen">
-      <h1 className="text-lg font-bold mb-6 px-3">BrunchPay Admin</h1>
+      <Link to="/" className="text-xl font-bold">
+        BrunchPay Admin
+      </Link>
 
       <nav className="mt-6">
         <NavLink to="/" className="flex items-center gap-3 py-3 px-2 hover:bg-gray-700 rounded">
