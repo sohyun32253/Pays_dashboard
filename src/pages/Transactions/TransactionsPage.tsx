@@ -45,11 +45,16 @@ export default function TransactionsPage() {
     return `${y}-${m}-${d} ${hh}:${mm}`;
   }
 
+  const sorted = data.sort((a, b) => {
+  return new Date(b.paymentAt).getTime() - new Date(a.paymentAt).getTime();
+  });
+
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const start = page * itemsPerPage;
   const end = start + itemsPerPage;
-  const currentItems = data.slice(start, end);
+
+  const currentItems = sorted.slice(start, end);
 
   return (
     <div>
