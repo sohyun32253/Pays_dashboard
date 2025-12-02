@@ -2,7 +2,7 @@
 
 React + TypeScript로 구축한 결제·가맹점 관리 대시보드입니다.
 
-테스트 API를 연동하여 Dashboard / Payments / Merchants / Invoice의 관리자 화면을 구현하였으며,
+테스트 API를 연동하여 Dashboard / Payments / Merchants / Invoices의 관리자 화면을 구현하였으며,
 
 PG 도메인의 데이터 흐름과 시각화를 중점적으로 설계했습니다.
 
@@ -54,7 +54,7 @@ npm run dev
 
 
 
-### 2. 거래 내역(Transaction List)
+### 2. 거래 내역(Payments List)
 
 - /payments/list API 연동
 
@@ -113,7 +113,7 @@ npm run dev
 src/
  ├── api/            # Axios 클라이언트 설정
  ├── components/     # UI 컴포넌트
- ├── pages/          # 주요 화면 (Dashboard / Payments / Merchants / Invoice)
+ ├── pages/          # 주요 화면 (Dashboard / Payments / Merchants / Invoices)
  ├── styles/         # Badge, Card 등 UI 스타일 요소
  ├── types/          # API 응답 타입 정의
  └── utils/          # 금액/날짜 포맷 함수 등
