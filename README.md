@@ -1,7 +1,9 @@
 # BrunchPay Admin Dashboard
 
 React + TypeScript로 구축한 결제·가맹점 관리 대시보드입니다.
+
 테스트 API를 연동하여 Dashboard / Payments / Merchants / Invoice의 관리자 화면을 구현하였으며,
+
 PG 도메인의 데이터 흐름과 시각화를 중점적으로 설계했습니다.
 
 ---
