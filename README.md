@@ -72,7 +72,7 @@ npm run dev
 
 - PG 도메인에서 활용되는 데이터 형태에 맞게 시각적 구성
 
-### 4. Invoice Management (Mock 데이터 기반)
+### 4. 인보이스 관리 (Invoices Management)
 
 - API가 제공되지 않는 항목이므로 Mock 데이터 사용
 
