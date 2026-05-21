@@ -1,11 +1,10 @@
 # BrunchPay Admin Dashboard
 
-**㈜올페이즈**에서 제공한 **채용 전용 API**를 기반으로  
-결제(Payment) 및 가맹점(Merchant) 관련 데이터를 시각화한  
-**Admin Dashboard 프로젝트**입니다.
+React + TypeScript로 구축한 결제·가맹점 관리 대시보드입니다.
 
-**React + TypeScript + Vite** 환경에서 구현했으며,  
-결제대행사(PG) 도메인에 맞게 실제 관리자에서 볼 법한 구성으로 제작했습니다.
+테스트 API를 연동하여 Dashboard / Payments / Merchants / Invoices의 관리자 화면을 구현하였으며,
+
+PG 도메인의 데이터 흐름과 시각화를 중점적으로 설계했습니다.
 
 ---
 
@@ -15,7 +14,7 @@
 ```
 VITE_API_BASE_URL=https://recruit.paysbypays.com/api/v1
 ```
-※ 환경 변수 파일(.env)은 프로젝트 루트에 생성해야 합니다.
+※ 해당 URL은 테스트용 공개 API로, 개발 환경에서만 사용됩니다.
 
 ### 2) 패키지 설치
 ```
@@ -39,17 +38,6 @@ npm run dev
 | 언어      | TypeScript   |
 | 스타일     | Tailwind CSS |
 
-### 📦 API 정보
-
-#### Base URL
-
-https://recruit.paysbypays.com/api/v1
-
-
-#### Swagger 문서
-https://recruit.paysbypays.com/swagger-ui/index.html
-
-
 
 ## 📌 구현된 주요 페이지
 ### 1. 대시보드(Dashboard)
@@ -66,7 +54,7 @@ https://recruit.paysbypays.com/swagger-ui/index.html
 
 
 
-### 2. 거래 내역(Transaction List)
+### 2. 거래 내역(Payments List)
 
 - /payments/list API 연동
 
@@ -84,7 +72,7 @@ https://recruit.paysbypays.com/swagger-ui/index.html
 
 - PG 도메인에서 활용되는 데이터 형태에 맞게 시각적 구성
 
-### 4. Invoice Management (Mock 데이터 기반)
+### 4. 인보이스 관리 (Invoices Management)
 
 - API가 제공되지 않는 항목이므로 Mock 데이터 사용
 
@@ -125,7 +113,7 @@ https://recruit.paysbypays.com/swagger-ui/index.html
 src/
  ├── api/            # Axios 클라이언트 설정
  ├── components/     # UI 컴포넌트
- ├── pages/          # 주요 화면 (Dashboard / Payments / Merchants / Invoice)
+ ├── pages/          # 주요 화면 (Dashboard / Payments / Merchants / Invoices)
  ├── styles/         # Badge, Card 등 UI 스타일 요소
  ├── types/          # API 응답 타입 정의
  └── utils/          # 금액/날짜 포맷 함수 등
@@ -138,8 +126,9 @@ src/
 
 - 실 API 기반의 데이터 흐름을 고려하여 실무와 가까운 구조를 구현
 
+## 📸 시연 영상
+https://github.com/user-attachments/assets/1542badc-9ac2-40af-a24e-f0afebf10c9c
 
-## 📮 제출 정보
 
-본 프로젝트는 (주)올페이즈 채용 전형을 위해 제작된 프로젝트입니다.
+
 
