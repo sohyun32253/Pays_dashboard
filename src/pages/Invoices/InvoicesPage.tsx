@@ -1,41 +1,41 @@
 import { useEffect, useState } from "react";
-import { api } from "../../api/client";
-import { createInvoices } from "../../utils/createInvoices";
+import { getInvoices } from "../../api/dashboardApi";
 import StatusBadge from "../../styles/StatusBadge";
 import Pagination from "../../components/pagination";
 import type { Invoice } from "../../utils/createInvoices";
 
 export default function InvoicesPage() {
-  const [invoices, setInvoices] = useState<Invoice[]>([]);
+  const [data, setData] = useState<Invoice[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [page, setPage] = useState(0);
 
   const itemsPerPage = 10; 
 
   useEffect(() => {
-    async function fetchPayments() {
+    async function fetchInvoices() {
       try {
-        const res = await api.get("/payments/list");
-        const payments = res.data.data;
-
-        const generatedInvoices = createInvoices(payments);
-        setInvoices(generatedInvoices);
+        const data = await getInvoices();
+        setData(data); 
+      } catch (err) {
+        console.error("API Error:", err);
+        setError(true);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchPayments();
+    fetchInvoices();
   }, []);
 
   if (loading) return <div>로딩중...</div>;
-
-  const pageCount = Math.ceil(invoices.length / itemsPerPage);
+  if (error) return <div>에러 발생!</div>;
+  const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const start = page * itemsPerPage;
   const end = start + itemsPerPage;
 
-  const currentItems = invoices.slice(start, end);
+  const currentItems = data.slice(start, end);
 
   return (
     <div>

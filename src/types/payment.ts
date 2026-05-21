@@ -14,3 +14,12 @@ export interface Merchant{
   status: string;
   bizType: string;
 }
+
+export interface Invoice {
+  invoiceCode: string;
+  mchtCode: string;
+  period: string;
+  totalAmount: number;
+  currency: string;
+  status: string;
+}

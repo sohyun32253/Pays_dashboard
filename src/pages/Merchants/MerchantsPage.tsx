@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../../api/client";
+import { getMerchants } from "../../api/dashboardApi";
 import Pagination from "../../components/pagination";
 import type { Merchant } from "../../types/payment";
 import StatusBadge from "../../styles/StatusBadge";
@@ -11,10 +11,10 @@ export default function TransactionsPage() {
   const itemsPerPage = 10; 
 
   useEffect(() => {
-    async function fetchPayments() {
+    async function fetchMerchants() {
       try {
-        const res = await api.get("/merchants/list");
-        setData(res.data.data); 
+        const data = await getMerchants();
+        setData(data); 
       } catch (err) {
         console.error("API Error:", err);
         setError(true);
@@ -23,7 +23,7 @@ export default function TransactionsPage() {
       }
     }
 
-    fetchPayments();
+    fetchMerchants();
   }, []);
 
   if (loading) return <div>로딩중...</div>;

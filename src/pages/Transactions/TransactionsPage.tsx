@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import StatusBadge from "../../styles/StatusBadge";
-import { api } from "../../api/client";
+import { getPayments } from "../../api/dashboardApi";
 import Pagination from "../../components/pagination";
 import type { Payment } from "../../types/payment";
 
@@ -15,8 +15,8 @@ export default function TransactionsPage() {
   useEffect(() => {
     async function fetchPayments() {
       try {
-        const res = await api.get("/payments/list");
-        setData(res.data.data); 
+        const data = await getPayments();
+        setData(data); 
       } catch (err) {
         console.error("API Error:", err);
         setError(true);

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../../api/client";
-import type { Payment } from "../../types/payment";
+import { getPayments } from "../../api/dashboardApi";import type { Payment } from "../../types/payment";
 import PaymentsCardUi from "../../styles/PaymentsCardUi";
 import CircleIcon from "../../assets/card_circle_icon.svg";
 import { Doughnut } from "react-chartjs-2";
@@ -25,29 +24,28 @@ ChartJS.register(
 );
 
 export default function DashboardPage() {
-  const [data, setData] = useState<Payment[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+const [data, setData] = useState<Payment[]>([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(false);
 
-  // 1) API 요청
-  useEffect(() => {
-    async function fetchPayments() {
-      try {
-        const res = await api.get("/payments/list");
-        setData(res.data.data);
-      } catch (err) {
-        console.error("API Error:", err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
+useEffect(() => {
+  async function fetchPayments() {
+    try {
+      const data = await getPayments();
+      setData(data);
+    } catch (err) {
+      console.error("API Error:", err);
+      setError(true);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    fetchPayments();
-  }, []);
+  fetchPayments();
+}, []);
 
-  if (loading) return <div>로딩중...</div>;
-  if (error) return <div>에러 발생!</div>;
+if (loading) return <div>로딩중...</div>;
+if (error) return <div>에러 발생!</div>;
 
   // 2) 상태별 수치 계산
   const total = data.length;
@@ -123,18 +121,18 @@ export default function DashboardPage() {
   }
 
   // 7) 결제 수단 차트 데이터
-  const device = data.filter((p) => p.payType === "DEVICE").length;
+  const card = data.filter((p) => p.payType === "CARD").length;
   const mobile = data.filter((p) => p.payType === "MOBILE").length;
   const online = data.filter((p) => p.payType === "ONLINE").length;
   const billing = data.filter((p) => p.payType === "BILLING").length;
-  const vact = data.filter((p) => p.payType === "VACT").length;
+  const vacct = data.filter((p) => p.payType === "VACCT").length;
 
   const payTypeData = {
-    labels: ["DEVICE", "MOBILE", "ONLINE", "BILLING", "VACT"],
+    labels: ["CARD", "MOBILE", "ONLINE", "BILLING", "VACCT"],
     datasets: [
       {
         label: "Payment Types",
-        data: [device, mobile, online, billing, vact],
+        data: [card, mobile, online, billing, vacct],
         backgroundColor: [
           "#ffe641",
           "#FF7A00",
